@@ -1,0 +1,42 @@
+<div class="intro-header">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+        <h2>{{componentTitle}}</h2>
+      </div>
+
+      <form role="form" action="" method="post">
+        <div class="col-md-12">
+          <div *ngIf="apiExtractor">
+            <div class="form-group" >
+              <label for="InputName">Paste URL Below:</label>
+              <div class="input-group">
+                <input [(ngModel)]="url" type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required="">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!apiExtractor">
+            <div class="form-group" >
+              <label for="InputMessage">Paste Text Below:</label>
+              <div class="input-group">
+                <textarea [(ngModel)]="textContent" name="InputMessage" id="InputMessage" class="form-control" rows="5" required=""></textarea>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <input (click)="extractText()" type="button" name="submit" id="submit" value="Submit" class="btn wow tada btn-embossed btn-primary pull-right animated animated" style="visibility: visible;">
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="extractedEntities">
+  <lod-linker [childEntities]="entities" ></lod-linker>
+</div>
+

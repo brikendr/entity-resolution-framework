@@ -1,0 +1,22 @@
+<!--<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes"  [routerLink]="['/detail', hero.id]"  class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>-->
+<div class="intro-header">
+  <div class="col-xs-12 text-center abcen1">
+    <h1 class="h2_home wow fadeIn" data-wow-delay="0.4s">{{title}}</h1>
+    <h3 class="h4_home wow fadeIn" data-wow-delay="0.6s">{{description}}</h3>
+    <ul class="list-inline intro-social-buttons">
+      <li>
+        <a routerLink="/textContent/boilerpipe" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Select URL</span></a>
+      </li>
+      <li>
+        <a routerLink="/textContent/manual" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Provide Text Content</span></a>
+      </li>
+    </ul>
+  </div>
+</div>

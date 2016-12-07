@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Angular QuickStart</title>
+    <base href="/">
+    <title>Entity Resolution Framework</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="author" content="Brikend Rama">
 
+    <!-- START JS IMPORT -->
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
 
@@ -14,12 +16,74 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
 
     <script src="systemjs.config.js"></script>
+    <script src="app/assets/js/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
+    <!--[if IE 9]>
+    <script src="app/assets/js/PIE_IE9.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="app/assets/js/PIE_IE678.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="app/assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- END JS IMPORT -->
+
+
+    <!-- START STYLES IMPORT -->
+    <!-- Bootstrap core CSS -->
+    <link href="app/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="app/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom CSS-->
+    <link href="app/assets/css/general.css" rel="stylesheet">
+
+    <!-- Owl-Carousel -->
+    <link href="app/assets/css/custom.css" rel="stylesheet">
+    <link href="app/assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="app/assets/css/owl.theme.css" rel="stylesheet">
+    <link href="app/assets/css/style.css" rel="stylesheet">
+    <link href="app/assets/css/animate.css" rel="stylesheet">
+
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="app/assets/css/magnific-popup.css">
+    <!-- END STYLES IMPORT -->
+
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
 
-  <body>
+  <body id="home">
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+
+    <!-- FullScreen -->
     <my-app>Loading AppComponent content here ...</my-app>
+    <!-- JavaScript -->
+    <script src="app/assets/js/jquery-1.10.2.js"></script>
+    <script src="app/assets/js/bootstrap.js"></script>
+    <script src="app/assets/js/owl.carousel.js"></script>
+    <script src="app/assets/js/script.js"></script>
+    <!-- StikyMenu -->
+    <script src="app/assets/js/stickUp.min.js"></script>
+
+    <!-- Smoothscroll -->
+    <script type="text/javascript" src="app/assets/js/jquery.corner.js"></script>
+    <script src="app/assets/js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <script src="app/assets/js/classie.js"></script>
+    <script src="app/assets/js/uiMorphingButton_inflow.js"></script>
+    <!-- Magnific Popup core JS file -->
+    <script src="app/assets/js/jquery.magnific-popup.js"></script>
   </body>
 </html>
