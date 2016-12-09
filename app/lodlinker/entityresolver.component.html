@@ -1,0 +1,51 @@
+<div class="content-section-a">
+
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+      <p class="lead" style="margin-top:0">Annotations</p>
+    </div>
+    <div class="row">
+      <div class="col-md-12 panel-group" id="accordion">
+        <div *ngFor="let element of annotatedEntities; let i=index">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}">
+                  {{element.result.name}}</a>
+              </h4>
+            </div>
+            <div id="collapse{{i}}" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="row">
+
+                  <div class="col-sm-6 pull-right wow fadeInRightBig">
+                    <img class="img-responsive " src="{{element.result.image?.contentUrl}}" alt="">
+                  </div>
+
+                  <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
+                    <h3 class="section-heading">{{element.result.name}}</h3>
+                    <p class="lead">{{element.result.detailedDescription.articleBody}}</p>
+
+                    <ul class="descp lead2">
+                      <li><strong>Type</strong>:          {{element.result['@type']}}</li>
+                      <li><strong>Description</strong>:   {{element.result.description}}</li>
+                      <li><strong>URL</strong>:           {{element.result.url}}</li>
+                      <li><strong>Wikipedia</strong>:     {{element.result.detailedDescription?.url}}</li>
+                      <li><strong>Result Score</strong>:  {{element.resultScore}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a routerLink="/dashboard" class="btn wow tada btn-embossed btn-primary pull-right animated animated" style="visibility: visible;">Restart Process</a>
+  </div>
+
+</div>
+
+

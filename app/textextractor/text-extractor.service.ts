@@ -14,7 +14,7 @@ export class TextExtractorService {
   constructor(private http: Http) {}
 
   extractTextAPI(url: string): Observable<string> {
-    console.log('calling '+this.boilerPipeAPI+'?url='+url+'&output=text');
+
     let params: URLSearchParams = new URLSearchParams();
     params.set('url', url);
     params.set('output', "text");
@@ -31,7 +31,7 @@ export class TextExtractorService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.stanfordNERAPI+"?textContent="+textContent, options)
+    return this.http.post(this.stanfordNERAPI+"?textContent="+textContent, {})
       .map(this.extractData)
       .catch(this.handleError);
 
@@ -39,6 +39,8 @@ export class TextExtractorService {
 
   private extractData(res: Response) {
     let body = res.json();
+    console.log('DATA BEFORE PARSING');
+    console.log(body);
     return body.entities || { };
   }
 

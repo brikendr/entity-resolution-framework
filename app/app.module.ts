@@ -12,6 +12,7 @@ import {DashboardComponent} from "./dashboard.component";
 import { AppRoutingModule }     from './app-routing.module';
 import {TextExtractorComponent} from "./textextractor/text-extractor.component";
 import {LODLinkerComponent} from "./lodlinker/lodlinker.component";
+import {EntityResolverComponent} from "./lodlinker/entityresolver.component";
 
 @NgModule({
   imports:      [
@@ -26,7 +27,8 @@ import {LODLinkerComponent} from "./lodlinker/lodlinker.component";
     HeroesComponent,
     DashboardComponent,
     TextExtractorComponent,
-    LODLinkerComponent
+    LODLinkerComponent,
+    EntityResolverComponent
   ],
   providers: [
     HeroService

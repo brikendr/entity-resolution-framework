@@ -6,19 +6,20 @@ import { Location }                         from '@angular/common';
 import { TextExtractorService }             from './text-extractor.service';
 import 'rxjs/add/operator/switchMap';
 import {LODLinkerComponent} from "../lodlinker/lodlinker.component";
+import {EntityResolverComponent} from "../lodlinker/entityresolver.component";
 
 @Component({
   moduleId: module.id,
   selector: 'url-text-extractor',
   templateUrl: "text-extractor.component.html",
-  directives: [LODLinkerComponent],
+  entryComponents: [LODLinkerComponent],
   providers: [TextExtractorService]
 })
 
 export class TextExtractorComponent implements OnInit {
   //Public property
   @Input() apiExtractor: boolean;
-  textContent: string = "Microsoft was founded by Bill Gates and has its headquarters in California and Los Angeles";
+  textContent: string = "Microsoft, Apple and Nike were founded by Bill Gates, Steve Jobs and Bill Bowerman. The headquarters are in California, Los Angeles and New York.";
   url: string = "http://localhost:3000/example";
   entities: JSON;
   extractedEntities: boolean = false;
@@ -55,13 +56,12 @@ export class TextExtractorComponent implements OnInit {
           // Log errors if any
           console.log(err);
         });
-
   }
 
   navigateToLODComponent(data: JSON):void {
-
     this.entities = data;
     this.extractedEntities = true;
+    window.location.hash = 'whatis';
   }
 
   getTextFromURL(): void {

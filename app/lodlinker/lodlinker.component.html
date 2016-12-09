@@ -1,50 +1,66 @@
 <div id="whatis" class="content-section-b" style="border-top: 0">
   <div class="container">
 
-    <div class="col-md-6 col-md-offset-3 text-center wrap_title">
-      <h2>What is?</h2>
-      <p class="lead" style="margin-top:0">A special thanks to Death.</p>
-
+    <div class="col-md-6 text-center wrap_title">
+      <p class="lead" style="margin-top:0">Extracted Entities</p>
     </div>
 
     <div class="row">
 
-      <div class="col-sm-4 wow fadeInDown text-center">
-        <img class="rotate" src="../../app/assets/img/icon/company.svg" alt="Generic placeholder image" style="width: 28%">
+      <div class="col-md-4 wow fadeInDown text-center">
+        <img class="rotate" src="../../app/assets/img/icon/box.svg" alt="Organization Icon" >
         <h3>Organization</h3>
-        <div class="lead">
-          <div class="control-group">
-            <h1>Checkboxes</h1>
-            <label class="control control--checkbox">First checkbox
-              <input type="checkbox" checked="checked"/>
-              <div class="control__indicator"></div>
-            </label>
-          </div>
+        <div class="lead control-group">
+          <label *ngFor="let organization of childEntities.Organization" class="control control--checkbox" (click)="resolveEntities(organization)">{{organization}}
+            <!--<input type="checkbox" checked="checked"/>
+            <div class="control__indicator"></div>-->
+          </label>
         </div>
 
         <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
       </div><!-- /.col-lg-4 -->
 
-      <div class="col-sm-4 wow fadeInDown text-center">
-        <img  class="rotate" src="../../app/assets/img/icon/map.svg" alt="Generic placeholder image">
+      <div class="col-md-4 wow fadeInDown text-center">
+        <img  class="rotate" src="../../app/assets/img/icon/map.svg" alt="Location Icon">
         <h3>Location</h3>
-        <p class="lead">
-          {{childEntities.Location}}
-        </p>
+        <div class="lead control-group">
+          <label *ngFor="let location of childEntities.Location" class="control control--checkbox" (click)="resolveEntities(location)">{{location}}
+          </label>
+        </div>
         <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
       </div><!-- /.col-lg-4 -->
 
-      <div class="col-sm-4 wow fadeInDown text-center">
-        <img  class="rotate" src="../../app/assets/img/icon/person.png" alt="Generic placeholder image" style="width: 24%">
+      <div class="col-md-4 wow fadeInDown text-center">
+        <img  class="rotate" src="../../app/assets/img/icon/chair.svg" alt="Person Icon" >
         <h3>Person</h3>
-        <p class="lead">
-          {{childEntities.Person}}
-        </p>
+        <div class="lead control-group">
+          <label *ngFor="let person of childEntities.Person" class="control control--checkbox" (click)="resolveEntities(person)">{{person}}
+          </label>
+        </div>
         <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
       </div><!-- /.col-lg-4 -->
 
     </div><!-- /.row -->
 
-
+    <!--<div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <div class="mockup-content">
+          <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1 animated animated" style="visibility: visible; animation-name: pulse;">
+            <button type="button" (click)="resolveEntities()"><span>Resolve Entities</span></button>
+            <div class="morph-content">
+              <div>
+                <div class="content-style-form content-style-form-4 ">
+                  <h2 class="morph-clone">Resolve Entities</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
   </div>
+</div>
+
+<div *ngIf="areEntitiesAnnotated">
+  <entity-resolver [annotatedEntities]="annotatedEntities" ></entity-resolver>
 </div>
